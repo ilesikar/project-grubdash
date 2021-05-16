@@ -50,11 +50,12 @@ function dishExists (req, res, next) {
     const dishIndex = dishes.findIndex(dish => dish.id == dishId);
     const foundDish = dishes[dishIndex];
     if (foundDish) {
+        res.locals.foundDish = foundDish;
         res.locals.dishId = dishId;
-        res.locals.dishIndex = dishIndex
+        res.locals.dishIndex = dishIndex;
         return next();
     }
-    if (foundDish == undefined) {
+    if (!foundDish || foundDish == undefined) {
         next({
             status: 404,
             message: `Dish does not exist: ${dishId}`
@@ -85,16 +86,7 @@ function create (req, res) {
 }
 
 function read (req, res) {
-    const { dishId } = req.params;
-    const foundDish = dishes.find(dish => {
-        return dish.id == dishId;
-    });
-    if (!foundDish) {
-      return next({
-        status: 404,
-        message: "not found"
-      });
-    }
+    const foundDish = res.locals.foundDish;
     res.status(200).json({ data: foundDish });
 }
 

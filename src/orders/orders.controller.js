@@ -90,7 +90,6 @@ function validateUpdate(req, res, next) {
 
 function validateDestroy(req, res, next) {
     if (res.locals.foundOrder.status !== 'pending') {
-      console.log(res.locals.foundOrder)
       next({
         status: 400,
         message: "Order must be pending"
@@ -111,9 +110,7 @@ function create(req, res) {
 }
 
 function read(req, res) {
-    const foundOrder = orders.find(order => {
-        return order.id == res.locals.orderId;
-    });
+    const foundOrder = res.locals.foundOrder;
     res.status(200).json({ data: foundOrder });
 }
 
