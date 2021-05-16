@@ -136,3 +136,6 @@ dist
 
 # TernJS port file
 .tern-port
+
+# Qualified Attach
+.qualified-attach.json
