@@ -116,7 +116,9 @@ function read(req, res) {
 
 function update(req, res) {
     orders[res.locals.orderIndex] = res.locals.order;
-    orders[res.locals.orderIndex].id = res.locals.orderId;
+    if (!res.locals.order.id) {
+        orders[res.locals.orderIndex].id = res.locals.orderId;
+    }
     res.status(200).json({ data: res.locals.order });
 }
 

@@ -92,7 +92,9 @@ function read (req, res) {
 
 function update(req, res, next) {
     dishes[res.locals.dishIndex] = res.locals.dish;
-    dishes[res.locals.dishIndex].id = res.locals.dishId;
+    if (!res.locals.dish.id) {
+        dishes[res.locals.dishIndex].id = res.locals.dishId;
+    }
     res.status(200).json({ data: res.locals.dish });
 }
 
