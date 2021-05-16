@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 Skip to content
 Search or jump to…
 
@@ -29,6 +30,8 @@ Latest commit 44f9849 2 minutes ago
  1 contributor
 104 lines (76 sloc)  1.57 KB
   
+=======
+>>>>>>> 44f98495f9e7a92930e25882385269a20f773148
 # Logs
 logs
 *.log
@@ -133,16 +136,3 @@ dist
 
 # TernJS port file
 .tern-port
-© 2021 GitHub, Inc.
-Terms
-Privacy
-Security
-Status
-Docs
-Contact GitHub
-Pricing
-API
-Training
-Blog
-About
-Loading complete
